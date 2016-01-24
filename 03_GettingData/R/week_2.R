@@ -34,8 +34,8 @@ library(RCurl)
 library(sqldf)
 library(readr)
 myurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"
-download.file(url=myurl, destfile="./Week_2/acs.csv", method="curl")
-acs <- read_csv("./Week_2/acs.csv")
+download.file(url=myurl, destfile="./Data/acs.csv", method="curl")
+acs <- read_csv("./Data/acs.csv")
 
 # Which of the following commands will select only the data for the probability weights pwgtp1 with ages less than 50?
 sqldf("select pwgtp1 from acs where AGEP < 50")
@@ -62,9 +62,9 @@ htmlCode <- readLines(connection)
 close(connection)
 
 myurl <-"https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for"
-download.file(url=myurl, destfile="./Week_2/survey.for", method="curl")
-acs <- read_fwf("./Week_2/survey.for")
+download.file(url=myurl, destfile="./Data/survey.for", method="curl")
+acs <- read_fwf("./Data/survey.for")
 
-df <- read.fwf(file = "./Week_2/survey.for", widths = c(15, 4, 1, 3, 5, 4), header = FALSE, sep = "\t", skip = 4)
+df <- read.fwf(file = "./Data/survey.for", widths = c(15, 4, 1, 3, 5, 4), header = FALSE, sep = "\t", skip = 4)
 head(df)
 sum(df$V6)
